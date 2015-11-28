@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Platfora Challenge</title>
+	<meta name="author" content="Afshin Mokhtari">
+
+	<link rel="stylesheet" href="css/styles.css">
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<div id='dlMgr-container'>
+		<header>
+			<h3>Download Manager</h3>
+		</header>
+
+		<section class="whiteBkgd centered">
+			<div class='titleAndSearch'>
+				Files to download			
+				<input class='searchInput floatRight' type=search name=s placeholder="Find by Name">
+			</div>
+
+			<div class='colHeader'>
+				<span class="col1">File Name</span><span class="col2">Progress</span> 
+			</div>
+
+			<ul class='filesList'>
+				<!-- Input box entries get injected here! -->
+			</ul>
+
+			<div class='addFileBox altBkgd'>
+				<img class='fileIcon' src='img/add.png'>
+				<input type="text" name="fileToAdd" class='rounded thinBorder' placeholder='Filename to Add'>
+				<button class='addNewFileBtn rounded'>Add</button>
+			</div>
+
+		</section>
+
+		<button class='downloadAll rounded'>Download All</button>
+		<br>
+		<br>
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+
+</html>

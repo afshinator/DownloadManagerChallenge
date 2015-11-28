@@ -1,0 +1,239 @@
+
+
+/* Take inconsistent-between-browsers default margins and paddings off of all elements */
+* { 
+	margin:0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+input {
+	border: none;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+	-moz-appearance: none;  
+  appearance: none;
+
+  border: none;  /* Get rid of default border in Firefix */
+
+  width: 90%;
+  height: 20px;
+
+  color: #26bf8c;  /* IE10 uses this for value indicator */
+}
+
+progress[value]::-webkit-progress-value {
+  background: #26bf8c;
+}
+
+
+
+/* Entire Download Manager lives inside this div */
+#dlMgr-container {
+	width: 100%;
+	max-width: 1024px;
+	min-height: 400px;
+
+	background: #e4e5ea;   /* grey */;
+	font-family: sans-serif;
+}
+
+
+/* Holds only the title */
+header {
+	background: #39495f;
+	width: 100%;
+}
+
+header h3 {
+	font-size: 22px;
+	font-weight: 400;
+	color: white;
+	padding: 15px 30px;
+}
+
+
+
+/* The centered white inside container, below header */
+#dlMgr-container section {
+	width: 90%;
+	margin-top: 30px;
+	font-size:14px;
+	color: #555;
+}
+
+	.titleAndSearch {
+		padding: 15px 20px;
+		font-size: 14px;
+		font-weight: 600;
+		border-bottom:1px solid #e4e5ea;
+	}
+
+	.searchInput {
+		position: relative;
+		top: -7px;
+		margin-right: 25px;
+		width: 250px;
+		height: 30px;
+		border: 1px solid #e4e5ea;
+	  -webkit-border-radius: 5px;
+	  -moz-border-radius: 5px;
+	  border-radius: 5px;		
+	  background: url('../img/srch.png') left no-repeat;
+	}
+
+
+	::-webkit-input-placeholder {
+	 text-align: center;  font-size:12px;  
+	}
+	:-moz-placeholder { /* older Firefox*/
+	 text-align: center;font-size:12px;
+	}
+	::-moz-placeholder { /* Firefox 19+ */ 
+	 text-align: center;font-size:12px;
+	;
+	} 
+	:-ms-input-placeholder { 
+	 text-align: center;font-size:12px;
+	}
+
+
+
+	.colHeader { padding:30px 0 10px 0; font-weight: bold;}
+
+	.col1 { margin-left: 10%; }
+
+	.col2 { margin-left: 23%; }
+
+
+
+
+/* Each file in the list,
+	 including the progress bar and delete button
+*/
+
+	.filesList li {
+		padding: 20px;
+	}
+
+	.fileIcon {
+		height: 50px;
+	}
+
+	.fileDescription {
+		position: relative;
+		top: -20px;
+		margin-left: 30px;
+	}
+
+	.fileControls {
+		width: 56%;
+		float: right;
+		margin-right: 30px;
+		margin-top: 17px;
+	}
+
+	progress[value] {
+	  /* Reset the default appearance */
+	  -webkit-appearance: none;
+	  appearance: none;
+
+	  /*right: 100px;*/
+
+	  width: 85%;
+	  height: 20px;
+	}
+
+
+	.deleteIcon {
+		/*right: 20px;*/
+		/*top: 20px;		*/
+		float: right;
+		height: 20px;
+		cursor: pointer;
+	}
+
+
+
+
+
+/* 
+		The filename entry area 
+*/
+
+		.addFileBox {
+			padding: 20px;
+			border: 1px dashed #e4e5ea;   /* grey */
+		}
+
+		.addFileBox input {
+			position: relative;
+			top: -18px;
+			margin-left: 20px;
+			width: 30%;
+			height: 30px;
+		}
+
+
+
+/* Buttons */
+
+		button {
+			border: none;
+			color: white;
+			font-size: 14px;
+			padding:5px 40px;
+			cursor: pointer;
+		}
+
+		.downloadAll {
+			display: block;
+			margin: 50px auto;
+			background: #26bf8c;  /* green */
+		}
+
+		.addNewFileBtn {
+			background: #42739e; /* blue */
+			margin-left: 12px;
+			position: relative;
+			top: -18px;			
+		}
+
+
+
+
+
+/*
+ * Generic Styles 
+ */
+
+		.rel { position: relative; }
+
+		.whiteBkgd { background: white; }
+		.altBkgd { background: #f8f8f8; }	  
+
+		.centered { 
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.rounded {
+			-webkit-border-radius: 3px 3px 3px 3px;
+			border-radius: 3px 3px 3px 3px;
+		}
+
+		.floatRight {
+			float: right;
+			clear: both;
+		}
+
+		.thinBorder {
+			border: 1px solid #bfc0c4;   /* darker grey */;;
+		}
+}
