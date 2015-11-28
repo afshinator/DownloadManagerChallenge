@@ -1,19 +1,19 @@
 /*  Platfora challenge -  Afshin Mokhtari
  */
 
- 
+
 
 'use strict';
 
 (function(){
-	
+
 	var $ = function( selector ) {								// Provide a shortcut alias for dom selection
 			return document.querySelector( selector );
 		},
 
 		filesList = $( '.filesList' ),						// List where each new file will be show
 
-		buttonAddNewFile = $( '.addNewFileBtn' ),		
+		buttonAddNewFile = $( '.addNewFileBtn' ),
 		buttonDownloadAll = $( '.downloadAll' ),
 
 		maxFilenameShowable = 35,
@@ -45,7 +45,7 @@
 	};
 
 
-	/* Delete icon click handler for a list entry - 
+	/* Delete icon click handler for a list entry -
 	 *   Climbs up node tree to find particular <li> associated with this delete button
 	 *   and removes whole thing from listings.
 	 */
@@ -60,38 +60,15 @@
 
 	/* 'Download All' button handler-
 	 * Simulates downloading files - animates the progress bars.
-	 * This version starts with the top file, waits a while, then starts  
+	 * This version starts with the top file, waits a while, then starts
 	 * 'download' of next fileregardless of whether the previous one(s) are done or not.
 	 */
-	// var downloadAllHandler = function( e ) {
-	// 	var list = $( '.filesList' ).getElementsByTagName( 'li' ),
-	// 		entry,
-	// 		i = 0;
-		
-	// 	function updateProgress( which ) {
-	// 		if ( which.getElementsByTagName( 'progress' )[0].value < 95 ) {
-	// 			which.getElementsByTagName( 'progress' )[0].value += getRandom(1, 20);
-	// 			setTimeout( updateProgress, downloadDelay, which );
-	// 		} else {
-	// 			which.getElementsByTagName( 'progress' )[0].value = 100;
-	// 		}
-	// 	};
-
-	// 	function iterate() {
-	// 		updateProgress( list[i++] );
-	// 		if ( i < list.length ) {
-	// 			setTimeout( iterate, downloadDelay * 3 );
-	// 		}
-	// 	}
-
-	// 	iterate();
-	// };
 
 	var downloadAllHandler = function( e ) {
 		var list = $( '.filesList' ).getElementsByTagName( 'li' ),
 			entry,
 			i = 0;
-		
+
 		function updateProgress( which ) {
 			if ( which.getElementsByTagName( 'progress' )[0].value < 95 ) {
 				which.getElementsByTagName( 'progress' )[0].value += getRandom(1, 20);
@@ -107,7 +84,7 @@
 		}
 
 		iterate();
-	};	
+	};
 
 
 	// Helper function to return a random # between min & max,
@@ -118,7 +95,7 @@
 
 
 	// Helper function to assemble an html snippet of given filename to be show
-	// NOTE: I put together a string and letter set innerHTML, not sure if 
+	// NOTE: I put together a string and letter set innerHTML, not sure if
 	// 	best practices dictate I createNodes and do it that way.
 	function makeFileListing( filename ) {
 		var li = document.createElement( 'li' );
@@ -129,7 +106,7 @@
 		}
 
 		li.setAttribute( 'id', 'l' + listingCount );
-	
+
 		var result = '',
 			part2 = '<img class="fileIcon" src="img/file.png">\
 				<span class="fileDescription">',  // filename gets injected here
@@ -137,7 +114,7 @@
 			part4 = '<span class="fileControls"> \
 							<progress class="rounded" max="100" value="0"></progress> \
 							<img class="deleteIcon" src="img/delete.png">\
-						</span>';	
+						</span>';
 
 		if ( filename.length > maxFilenameShowable ) {
 			filename = filename.substring(0, maxFilenameShowable-3) + '...';
