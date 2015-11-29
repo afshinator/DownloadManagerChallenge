@@ -7,13 +7,33 @@
 
 	<title>Platfora Challenge</title>
 	<meta name="author" content="Afshin Mokhtari">
+
 	<script src="react.js"></script>
 	<script src="JSXTransformer.js"></script>
+
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+	<script type="text/jsx">
+		var MainSection = React.createClass({
+	      render: function() {
+	        return (
+	          <section className='whiteBkgd centered'>
+							<div className='titleAndSearch' >
+								Files to download
+								<input className='searchInput floatRight' type='search' name='s' placeholder='Find by Name' />
+							</div>
+	          </section>
+	        );
+	      }
+	  });
 
+	  React.render(
+	    <MainSection />,
+	    document.getElementById( 'dlMgr-container' )
+	  );
+	</script>
 	<div id='dlMgr-container'>
 		<header>
 			<h3>Download Manager</h3>
@@ -47,6 +67,7 @@
 	</div>
 
 	<script src="js/app.js"></script>
+
 </body>
 
 </html>
