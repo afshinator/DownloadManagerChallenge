@@ -11,11 +11,23 @@
 	<script src="react.js"></script>
 	<script src="JSXTransformer.js"></script>
 
+	<script src="js/app.js"></script>
+
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 	<script type="text/jsx">
+	  var Header = React.createClass({
+			render: function() {
+				return (
+					<header>
+						<h3>Download Manager</h3>
+					</header>
+				);
+			}
+		});
+
 		var MainSection = React.createClass({
 	      render: function() {
 	        return (
@@ -43,11 +55,33 @@
 	      }
 	  });
 
-	  React.render(
-	    <MainSection />,
+		var Bottom = React.createClass({
+			render: function() {
+				return (
+					<button className='downloadAll rounded'>Download All</button>
+					<br>
+					<br>
+				);
+			}
+		});
+
+		var App = React.createClass({
+			render: function() {
+				<div>
+					<Header />
+					<MainSection />
+					<Bottom />
+				</div>
+			}
+		});
+
+		React.render(
+	    <App />,
 	    document.getElementById( 'dlMgr-container' )
 	  );
 	</script>
+
+	<!--
 	<div id='dlMgr-container'>
 		<header>
 			<h3>Download Manager</h3>
@@ -64,7 +98,6 @@
 			</div>
 
 			<ul class='filesList'>
-				<!-- Input box entries get injected here! -->
 			</ul>
 
 			<div class='addFileBox altBkgd'>
@@ -79,8 +112,7 @@
 		<br>
 		<br>
 	</div>
-
-	<script src="js/app.js"></script>
+-->
 
 </body>
 

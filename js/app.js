@@ -125,7 +125,7 @@
 	}
 
 
-	buttonAddNewFile.onclick = addFilenameButtonHandler;
-	buttonDownloadAll.onclick = downloadAllHandler;
+	// buttonAddNewFile.onclick = addFilenameButtonHandler;
+	// buttonDownloadAll.onclick = downloadAllHandler;
 
 })();
