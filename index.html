@@ -17,6 +17,8 @@
 </head>
 
 <body>
+	<div id='dlMgr-container'>
+	</div>
 	<script type="text/jsx">
 	  var Header = React.createClass({
 			render: function() {
@@ -58,20 +60,24 @@
 		var Bottom = React.createClass({
 			render: function() {
 				return (
-					<button className='downloadAll rounded'>Download All</button>
-					<br>
-					<br>
+					<div>
+						<button className='downloadAll rounded'>Download All</button>
+						<br />
+						<br />
+					</div>
 				);
 			}
 		});
 
 		var App = React.createClass({
 			render: function() {
-				<div>
-					<Header />
-					<MainSection />
-					<Bottom />
-				</div>
+				return (
+					<div>
+						<Header />
+						<MainSection />
+						<Bottom />
+					</div>
+				)
 			}
 		});
 
