@@ -30,6 +30,50 @@
 			}
 		});
 
+		var Listing = React.createClass({
+				render: function() {
+					return (
+						<li className='oneFile' id='l{this.props.id}' >
+
+						</li>
+					);
+				}
+		});
+
+		var FilesList = React.createClass({
+				getInitialState: function() {
+					return { fnameToAdd: '', listingCount: 0 };
+				},
+				updateFname: function(e) {
+					this.setState({ fnameToAdd: e.target.value });
+					console.log( this.state.fnameToAdd );
+				},
+				keypress: function(e) {
+					if ( e.keyCode === 13 && this.state.fnameToAdd !== '' ) {
+						this.handleAdd();
+						this.setState({ fnameToAdd: '' });
+					}
+ 				},
+				handleAdd: function(e) {
+					console.log('clicked ' ,e, this.state.fnameToAdd );
+					this.setState({ listingCount: this.state.listingCount++ });
+				},
+				render: function() {
+					return (
+						<div>
+							<ul className='filesList'>
+							</ul>
+
+							<div className='addFileBox altBkgd'>
+								<img className='fileIcon' src='img/add.png' />
+								<input onChange={this.updateFname} onKeyDown={this.keypress} type="text" name="fileToAdd" className='rounded thinBorder' placeholder='Filename to Add' />
+								<button onClick={this.handleAdd} className='addNewFileBtn rounded'>Add</button>
+							</div>
+						</div>
+					);
+				}
+		});
+
 		var MainSection = React.createClass({
 	      render: function() {
 	        return (
@@ -43,15 +87,7 @@
 								<span className="col1">File Name</span><span className="col2">Progress</span>
 							</div>
 
-							<ul className='filesList'>
-
-							</ul>
-
-							<div className='addFileBox altBkgd'>
-								<img className='fileIcon' src='img/add.png' />
-								<input type="text" name="fileToAdd" className='rounded thinBorder' placeholder='Filename to Add' />
-								<button className='addNewFileBtn rounded'>Add</button>
-							</div>
+							<FilesList />
 	          </section>
 	        );
 	      }
