@@ -30,23 +30,23 @@
 			}
 		});
 
-		var Listing = React.createClass({
-				render: function() {
-					return (
-						<li className='oneFile' id='l{this.props.id}' >
-
-						</li>
-					);
-				}
-		});
+		// var Listing = React.createClass({
+		// 		render: function() {
+		// 			return (
+		// 				<li className='oneFile' id='l{this.props.id}' >
+		//
+		// 				</li>
+		// 			);
+		// 		}
+		// });
 
 		var FilesList = React.createClass({
 				getInitialState: function() {
-					return { fnameToAdd: '', listingCount: 0 };
+					return { fnameToAdd: '', fList : [] };
 				},
 				updateFname: function(e) {
 					this.setState({ fnameToAdd: e.target.value });
-					console.log( this.state.fnameToAdd );
+					// console.log( this.state.fnameToAdd );
 				},
 				keypress: function(e) {
 					if ( e.keyCode === 13 && this.state.fnameToAdd !== '' ) {
@@ -55,13 +55,23 @@
 					}
  				},
 				handleAdd: function(e) {
-					console.log('clicked ' ,e, this.state.fnameToAdd );
-					this.setState({ listingCount: this.state.listingCount++ });
+					// console.log('clicked ', e, this.state.fnameToAdd );
+					this.state.fList.push( this.state.fnameToAdd );
+					this.setState({ fnameToAdd: '' });
 				},
 				render: function() {
+					var fList = this.state.fList.map( function(file) {
+						return (
+							<li className='oneFile' id='l{this.state.fList.length + 1}' >
+								{ file }
+							</li>
+						);
+					});
+					console.log( this.state.fList );
 					return (
 						<div>
 							<ul className='filesList'>
+								{ fList }
 							</ul>
 
 							<div className='addFileBox altBkgd'>
