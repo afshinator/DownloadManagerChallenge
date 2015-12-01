@@ -66,7 +66,7 @@
 						);
 					});
 
-					console.log( this.state.fList );
+					// console.log( this.state.fList );
 
 					return (
 						<div>
@@ -76,7 +76,7 @@
 
 							<div className='addFileBox altBkgd'>
 								<img className='fileIcon' src='img/add.png' />
-								<input onChange={this.updateFname} onKeyDown={this.keypress} type="text" name="fileToAdd" className='rounded thinBorder' placeholder='Filename to Add' />
+								<input onChange={this.updateFname} onKeyDown={this.keypress} value={this.state.fnameToAdd} type="text" name="fileToAdd" className='rounded thinBorder' placeholder='Filename to Add' />
 								<button onClick={this.handleAdd} className='addNewFileBtn rounded'>Add</button>
 							</div>
 						</div>

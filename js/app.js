@@ -92,8 +92,6 @@
 
 
 	// Helper function to assemble an html snippet of given filename to be show
-	// NOTE: I put together a string and letter set innerHTML, not sure if
-	// 	best practices dictate I createNodes and do it that way.
 	function makeFileListing( filename ) {
 		var li = document.createElement( 'li' );
 		li.className = 'oneFile';
