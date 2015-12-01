@@ -20,6 +20,7 @@
 	<div id='dlMgr-container'>
 	</div>
 	<script type="text/jsx">
+
 	  var Header = React.createClass({
 			render: function() {
 				return (
@@ -30,15 +31,6 @@
 			}
 		});
 
-		// var Listing = React.createClass({
-		// 		render: function() {
-		// 			return (
-		// 				<li className='oneFile' id='l{this.props.id}' >
-		//
-		// 				</li>
-		// 			);
-		// 		}
-		// });
 
 		var FilesList = React.createClass({
 				getInitialState: function() {
@@ -51,7 +43,6 @@
 				keypress: function(e) {
 					if ( e.keyCode === 13 && this.state.fnameToAdd !== '' ) {
 						this.handleAdd();
-						this.setState({ fnameToAdd: '' });
 					}
  				},
 				handleAdd: function(e) {
@@ -63,11 +54,20 @@
 					var fList = this.state.fList.map( function(file) {
 						return (
 							<li className='oneFile' id='l{this.state.fList.length + 1}' >
-								{ file }
+								<img className="fileIcon" src="img/file.png" />
+								<span className="fileDescription">
+									{ file }
+								</span>
+								<span className="fileControls">
+									<progress className="rounded" max="100" value="0"></progress>
+									<img className="deleteIcon" src="img/delete.png" />
+								</span>
 							</li>
 						);
 					});
+
 					console.log( this.state.fList );
+
 					return (
 						<div>
 							<ul className='filesList'>
@@ -133,38 +133,6 @@
 	  );
 	</script>
 
-	<!--
-	<div id='dlMgr-container'>
-		<header>
-			<h3>Download Manager</h3>
-		</header>
-
-		<section class="whiteBkgd centered">
-			<div class='titleAndSearch'>
-				Files to download
-				<input class='searchInput floatRight' type=search name=s placeholder="Find by Name">
-			</div>
-
-			<div class='colHeader'>
-				<span class="col1">File Name</span><span class="col2">Progress</span>
-			</div>
-
-			<ul class='filesList'>
-			</ul>
-
-			<div class='addFileBox altBkgd'>
-				<img class='fileIcon' src='img/add.png'>
-				<input type="text" name="fileToAdd" class='rounded thinBorder' placeholder='Filename to Add'>
-				<button class='addNewFileBtn rounded'>Add</button>
-			</div>
-
-		</section>
-
-		<button class='downloadAll rounded'>Download All</button>
-		<br>
-		<br>
-	</div>
--->
 
 </body>
 
