@@ -37,7 +37,11 @@
 					return { fnameToAdd: '', fList : [] };
 				},
 				updateFname: function(e) {
-					this.setState({ fnameToAdd: e.target.value });
+					// this.setState({ fnameToAdd: e.target.value });    // original, no validation check version
+					this.setState({
+							// use regex to weed out non-filename characters
+							fnameToAdd: e.target.value.replace(/\([^\0 !$`&*()+]\|\\\(\ |\!|\$|\`|\&|\*|\(|\)|\+\)\)\+/ig, '')
+					});
 					// console.log( this.state.fnameToAdd );
 				},
 				keypress: function(e) {
